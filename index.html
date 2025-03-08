@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: rgb(0, 0, 0);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            height: 380px;
+            object-fit: cover;
+        }
+        .btn-primary {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .cart-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .product button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <script>
+        function openCart() {
+            window.open("cart.php", "_self");
+        }
+        function filterCategory(category) {
+            let products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                if (category === 'all' || product.classList.contains(category)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Clothing Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="filterCategory('all')">All</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="filterCategory('t-shirt')">T-Shirts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="filterCategory('shirt')">Shirts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="filterCategory('jeans')">Jeans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="filterCategory('shoes')">Shoes</a></li>
+                    
+                </ul>
+            </div>
+            <img src="cart.jpeg" height="40px">
+            <button class="btn btn-success cart-btn" onclick=" openCart() ">Go to Cart</button>
+        </div>
+    </nav>
+    <div class="container">
+
+            <div class="container text-center">
+        
+                <!--t-shirt--->
+                <div class="row row-cols-2 row-cols-md-4 g-4" id="product-list">
+                    <div class="col product t-shirt">
+                        <div class="card p-2">
+                            <img src="images/Allen Solly Mens Solid Regular Fit Polo(green).jpg" class="card-img-top" alt="T-Shirt">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Allen Solly Men's Solid Regular Fit Polo(green)</h5>
+                                <p class="card-text">$20</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Allen Solly Men's Solid Regular Fit Polo(Green)">
+                                    <input type="hidden" name="price" value="20">
+                                    <input type="hidden" name="image" value="Allen Solly Mens Solid Regular Fit Polo(Green).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product t-shirt">
+                        <div class="card p-2">
+                            <img src="images/Allen Solly Mens Solid Regular Fit Polo(blue).jpg" class="card-img-top" alt="Shirt">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Allen Solly Men's Solid Regular Fit Polo(blue)</h5>
+                                <p class="card-text">$25</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Allen Solly Men's Solid Regular Fit Polo(blue)">
+                                    <input type="hidden" name="price" value="25">
+                                    <input type="hidden" name="image" value="Allen Solly Mens Solid Regular Fit Polo(blue).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product t-shirt">
+                        <div class="card p-2">
+                            <img src="images/Allen Solly Mens Solid Regular Fit Polo(black).jpg" class="card-img-top" alt="Jeans">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Allen Solly Men's Solid Regular Fit Polo(black)</h5>
+                                <p class="card-text">$40</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Allen Solly Mens Solid Regular Fit Polo(black)">
+                                    <input type="hidden" name="price" value="40">
+                                    <input type="hidden" name="image" value="Allen Solly Mens Solid Regular Fit Polo(black).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product t-shirt">
+                        <div class="card p-2">
+                            <img src="images/Allen Solly Mens Solid Regular Fit Polo(red).jpg" class="card-img-top" alt="Jacket">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Allen Solly Men's Solid Regular Fit Polo(Red)</h5>
+                                <p class="card-text">$60</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Allen Solly Mens Solid Regular Fit Polo(red)">
+                                    <input type="hidden" name="price" value="60">
+                                    <input type="hidden" name="image" value="Allen Solly Mens Solid Regular Fit Polo(red).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+        
+        
+                    <!--shirt--->
+                    <div class="col product shirt">
+                        <div class="card p-2">
+                            <img src="images/Louis Philippe Mens Solid Slim Fit Shirt(black).jpg" class="card-img-top" alt="Jacket">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Louis Philippe Men's Solid Slim Fit Shirt(black)</h5>
+                                <p class="card-text">$60</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Louis Philippe Mens Solid Slim Fit Shirt(black)">
+                                    <input type="hidden" name="price" value="60">
+                                    <input type="hidden" name="image" value="Louis Philippe Mens Solid Slim Fit Shirt(black).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product shirt">
+                        <div class="card p-2">
+                            <img src="images/Louis Philippe Mens Solid Slim Fit Shirt(blue).jpg" class="card-img-top" alt="Jacket">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Louis Philippe Men's Solid Slim Fit Shirt(blue)</h5>
+                                <p class="card-text">$60</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Louis Philippe Mens Solid Slim Fit Shirt(blue)">
+                                    <input type="hidden" name="price" value="34">
+                                    <input type="hidden" name="image" value="Louis Philippe Mens Solid Slim Fit Shirt(blue).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product shirt">
+                        <div class="card p-2">
+                            <img src="images/Louis Philippe Mens Solid Slim Fit Shirt(white).jpg" class="card-img-top" alt="Jacket">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Louis Philippe Men's Solid Slim Fit Shirt(white)</h5>
+                                <p class="card-text">$60</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Louis Philippe Mens Solid Slim Fit Shirt(white)">
+                                    <input type="hidden" name="price" value="50">
+                                    <input type="hidden" name="image" value="Louis Philippe Mens Solid Slim Fit Shirt(white).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product shirt">
+                        <div class="card p-2">
+                            <img src="images/Louis Philippe Mens Solid Slim Fit Shirt(black1).jpg" class="card-img-top" alt="Jacket">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Louis Philippe Men's Solid Slim Fit Shirt(black1)</h5>
+                                <p class="card-text">$60</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Louis Philippe Mens Solid Slim Fit Shirt(black1)">
+                                    <input type="hidden" name="price" value="55">
+                                    <input type="hidden" name="image" value="Louis Philippe Mens Solid Slim Fit Shirt(black1).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--jeans-->
+                    <div class="col product jeans">
+                        <div class="card p-2">
+                            <img src="images/Pepe Jeans Men Regular Fit Jeans(black).jpg" class="card-img-top" alt="Jeans">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Pepe Jeans Men Regular Fit Jeans(black)</h5>
+                                <p class="card-text">$40</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Pepe Jeans Men Regular Fit Jeans(black)">
+                                    <input type="hidden" name="price" value="40">
+                                    <input type="hidden" name="image" value="Pepe Jeans Men Regular Fit Jeans(black).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product jeans">
+                        <div class="card p-2">
+                            <img src="images/Pepe Jeans Men Regular Fit Jeans(blue).jpg" class="card-img-top" alt="Jeans">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Pepe Jeans Men Regular Fit Jeans(blue)</h5>
+                                <p class="card-text">$40</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Pepe Jeans Men Regular Fit Jeans(blue)">
+                                    <input type="hidden" name="price" value="40">
+                                    <input type="hidden" name="image" value="Pepe Jeans Men Regular Fit Jeans(blue).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product jeans">
+                        <div class="card p-2">
+                            <img src="images/Levi's Men's 511 Slim Fit Mid Rise Jeans.jpg" class="card-img-top" alt="Jeans">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Levi's Men's 511 Slim Fit Mid Rise Jeans</h5>
+                                <p class="card-text">$40</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Levi's Men's 511 Slim Fit Mid Rise Jeans">
+                                    <input type="hidden" name="price" value="40">
+                                    <input type="hidden" name="image" value="Levi's Men's 511 Slim Fit Mid Rise Jeans.jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product jeans">
+                        <div class="card p-2">
+                            <img src="images/Pepe Jeans Men Regular Fit Jeans.jpg" class="card-img-top" alt="Jeans">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Pepe Jeans Men Regular Fit Jeans</h5>
+                                <p class="card-text">$40</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Pepe Jeans Men Regular Fit Jeans">
+                                    <input type="hidden" name="price" value="40">
+                                    <input type="hidden" name="image" value="Pepe Jeans Men Regular Fit Jeans.jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Jackets-->
+                    <div class="col product shoes">
+                        <div class="card p-2">
+                            <img src="images/adidas Men's Low-top Trainer Running Shoes(black).jpg" class="card-img-top" alt="Jeans">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">adidas Men's Low-top Trainer Running Shoes(black)</h5>
+                                <p class="card-text">$40</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="adidas Men's Low-top Trainer Running Shoes(black)">
+                                    <input type="hidden" name="price" value="40">
+                                    <input type="hidden" name="image" value="adidas Men's Low-top Trainer Running Shoes(black).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product shoes">
+                        <div class="card p-2">
+                            <img src="images/adidas Mens Runcrypt M Running Shoe(white).jpg" class="card-img-top" alt="Jeans">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">adidas Mens Runcrypt M Running Shoe(white)</h5>
+                                <p class="card-text">$40</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="adidas Mens Runcrypt M Running Shoe(white)">
+                                    <input type="hidden" name="price" value="40">
+                                    <input type="hidden" name="image" value="adidas Mens Runcrypt M Running Shoe(white).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product shoes">
+                        <div class="card p-2">
+                            <img src="images/adidas Mens Widewalk M Walking Shoe(blue).jpg" class="card-img-top" alt="Jeans">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">adidas Mens Widewalk M Walking Shoe(blue)</h5>
+                                <p class="card-text">$40</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="adidas Mens Widewalk M Walking Shoe(blue)">
+                                    <input type="hidden" name="price" value="40">
+                                    <input type="hidden" name="image" value="adidas Mens Widewalk M Walking Shoe(blue).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product shoes">
+                        <div class="card p-2">
+                            <img src="images/Adidas Men's Clinch-X M Running Shoe(black).jpg" class="card-img-top" alt="Jeans">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Adidas Men's Clinch-X M Running Shoe(black)</h5>
+                                <p class="card-text">$40</p>
+                                <form action="add_to_cart.php" method="post">
+                                    <input type="hidden" name="name" value="Adidas Men's Clinch-X M Running Shoe(black)">
+                                    <input type="hidden" name="price" value="40">
+                                    <input type="hidden" name="image" value="Adidas Men's Clinch-X M Running Shoe(black).jpg">
+                                    <button type="submit">Select</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            
+        </div>
+    </div>
+</body>
+</html>
